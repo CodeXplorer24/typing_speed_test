@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Speed Test</title>
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="stats">
             <div class="stat-block">
-                <div class="stat-label">Timer</div>
-                <div id="timer" class="stat-value">60</div>
+                <div class="stat-label">Time</div>
+                <div id="timer" class="stat-value">0</div>
             </div>
             <div class="stat-block">
                 <div class="stat-label">WPM</div>
@@ -28,6 +30,17 @@
         <textarea id="quote-input" class="quote-input" placeholder="Start typing here..." autofocus></textarea>
         
         <button id="restart-btn" class="restart-btn">Restart Test</button>
+
+        <div class="chart-container">
+            <canvas id="history-chart"></canvas>
+        </div>
+
+        <div class="history-container">
+            <h3>Your History</h3>
+            <ul id="history-list">
+                </ul>
+        </div>
+        
     </div>
 
     <script src="script.js"></script>
