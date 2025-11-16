@@ -1,4 +1,3 @@
-// Get all the necessary DOM elements
 const quoteDisplayElement = document.getElementById('quote-display');
 const quoteInputElement = document.getElementById('quote-input');
 const timerElement = document.getElementById('timer');
@@ -10,8 +9,7 @@ const historyList = document.getElementById('history-list');
 const chartCanvas = document.getElementById('history-chart');
 let historyChartInstance;
 
-// Use a reliable "Lorem Ipsum" API
-const RANDOM_QUOTE_API_URL = 'https://random-word-api.herokuapp.com/word?number=20';
+const RANDOM_QUOTE_API_URL = 'https://random-word-api.herokuapp.com/word?number=15';
 const STORAGE_KEY = 'typingTestHistory';
 
 let timer;
@@ -20,11 +18,11 @@ let totalErrors = 0;
 let currentQuote = '';
 let isTestActive = false;
 
-// --- NEW GLOBAL VARIABLES ---
-let allQuoteSpans = []; // Stores all the letter <span> elements
-let currentIndex = 0; // Tracks the user's position in the quote
 
-// Function to fetch a new random quote from the API
+let allQuoteSpans = []; 
+let currentIndex = 0; 
+
+
 function getRandomQuote() {
     return fetch(RANDOM_QUOTE_API_URL)
         .then(response => {
@@ -44,7 +42,7 @@ function getRandomQuote() {
         });
 }
 
-// Function to display the quote on the screen
+
 async function renderNewQuote() {
     try {
         currentQuote = await getRandomQuote();
@@ -61,7 +59,7 @@ async function renderNewQuote() {
             return;
         }
 
-        // Create a span for each character and add to array
+        
         currentQuote.split('').forEach(char => {
             const charSpan = document.createElement('span');
             charSpan.innerText = char;
@@ -69,7 +67,7 @@ async function renderNewQuote() {
             allQuoteSpans.push(charSpan); // Add to our array
         });
         
-        // Set the initial cursor position
+        
         updateCursor();
 
     } catch (error) {
@@ -78,7 +76,7 @@ async function renderNewQuote() {
     }
 }
 
-// Function to start the timer
+
 function startTimer() {
     isTestActive = true;
     timeElapsed = 0;
@@ -92,13 +90,11 @@ function startTimer() {
     }, 1000);
 }
 
-// --- THIS IS THE NEW KEYDOWN HANDLER ---
+
 function handleKeyDown(e) {
-    // We need to focus the hidden input to capture keys
-    // This makes sure the user can start typing just by clicking anywhere
+    
     quoteInputElement.focus();
 
-    // Start timer on first valid keypress
     if (!isTestActive && currentQuote && !currentQuote.startsWith("Error:")) {
         startTimer();
     }
@@ -121,7 +117,7 @@ function handleKeyDown(e) {
             allQuoteSpans[currentIndex].classList.remove('correct', 'incorrect');
         }
     } 
-    // Handle regular keys (letters, space, symbols)
+    
     else if (key.length === 1) { 
         e.preventDefault(); // Stop key from being typed into hidden input
 

@@ -7,9 +7,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Use min-height to allow for scrolling */
+    min-height: 100vh; 
     margin: 0;
-    padding: 2rem 0; /* Add padding for small screens */
+    padding: 2rem 0; 
     box-sizing: border-box;
     text-rendering: optimizeLegibility;
 }
@@ -18,8 +18,8 @@ body {
     background-color: transparent;
     padding: 2rem;
     border-radius: 10px;
-    width: 900px; /* This is now the MAX width */
-    max-width: 90%; /* Ensures it shrinks on smaller screens */
+    width: 900px; 
+    max-width: 90%; 
     box-shadow: none;
 }
 
@@ -28,8 +28,8 @@ body {
     justify-content: space-around;
     margin-bottom: 2rem;
     font-size: 1.2rem;
-    flex-wrap: wrap; /* Allow stats to wrap if needed */
-    gap: 1rem; /* Add spacing between stat blocks */
+    flex-wrap: wrap; 
+    gap: 1rem; 
 }
 
 .stat-block {
